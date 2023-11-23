@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAccesorios</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand display-5 fw-bold"><img class="img_navbar"src="./images/logo1.png">
+                KAccesorios
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+                <h1 class="display-5 fw-bold"><i class="fa-solid fa-cart-shopping"></i> KAccesorios</h1>
+                <p class="lead">Tienda Online</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 text-end">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+                    <i class="fa-solid fa-plus"></i> Nuevo Producto
+                </button>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <!-- Targetas de productos -->
+            <div class="col-8">
+
+                <div class="row my-4" id="listado-productos">
+                    <!--Este div mostraba como debe quedar las targetas de los productos-->
+
+                    <!--div class="col-md-4 mt-4">
+                        <div class="card">
+                            <img src="./images/1.jpg">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Nombre de la imagen</h5>
+                                <p class="mt-3"><b>Codigo: </b>0048</p>
+                                <p><b>Unidades Disponibles: </b>5</p>
+                                <p><b>Precio: </b>$15.000</p>
+                                <p class="justificar"><b>Descripcion: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel non reprehenderit commodi officiis dolorum? Iste quia porro totam quibusdam quam amet tempore voluptatum enim. Commodi itaque assumenda numquam voluptatem reprehenderit?</p>
+                
+                                <div class="input-group mt-3">
+                                    <input type="number" class="form-control" value="1">
+                                    <button class="btn btn-success">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div-->
+                </div>
+            </div>
+
+            <div class="col-4">
+                <!-- Resume de compras-->
+                <p id="resumen" class="mt-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido del modal-->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-tittle"><i class="fa-solid fa-screwdriver-wrench"></i> Agregar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-solid fa-qrcode"></i> Código*
+                        </label>
+                        <input type="text" class="form-control" id="codigo">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-solid fa-signature"></i> Nombre*
+                        </label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-solid fa-calculator"></i> Cantidad*
+                        </label>
+                        <input type="number" class="form-control" id="cantidad">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-solid fa-dollar-sign"></i> Precio*
+                        </label>
+                        <input type="number" class="form-control" id="precio">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-solid fa-image"></i> Seleccionar imagen*</label>
+                        <input type="file" class="form-control" id="imagen" onchange="obtenerImagen()">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label"><i class="fa-regular fa-comment"></i> Descripción*
+                        </label>
+                        <textarea class="form-control" id="descripcion" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div  class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i>
+                        Cerrar
+                    </button>
+                    <button  class="btn btn-primary" onclick="agregar_producto()"><i class="fa-solid fa-floppy-disk"></i> 
+                        Agregar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/9168489264.js"></script>
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

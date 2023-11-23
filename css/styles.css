@@ -1,0 +1,30 @@
+.navbar {
+    
+    background-color: white !important;
+}
+
+.btn-primary {
+    background-color:#d63384 !important;
+    border: #d63384;
+}
+
+.img_navbar{
+    width: 10%;
+}
+
+.navbar-brand{
+    color: black !important;
+}
+
+p{
+    margin-bottom: 0rem;
+}
+
+.justificar {
+    text-align: justify;
+}
+
+.modal-header {
+    background-color: #d63384;
+    color: white;
+}
