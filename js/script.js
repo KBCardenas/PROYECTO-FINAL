@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtener la información de los productos y del carrito al cargar la página
+    obtenerInfo();
+
+    // Mostrar los productos y el carrito en la página
+    mostrar();
+});
+
 /*
     Variables para almacenar todos los productos
     {
@@ -28,6 +36,29 @@
 /*
     funcion para validar si un codigo del producto existe, no llega un codigo como parametro y validamos si ese codigo existe en el array de objetos
 */
+
+function guardarInfo() {
+    localStorage.setItem('productos', JSON.stringify(productos));
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function obtenerInfo() {
+    let producto_recuperado = localStorage.getItem('productos');
+    let carrito_recuperado = localStorage.getItem('carrito');
+
+    if (producto_recuperado) {
+        productos = JSON.parse(producto_recuperado);
+    } else {
+        productos = [];
+    }
+
+    if (carrito_recuperado) {
+        carrito = JSON.parse(carrito_recuperado);
+    } else {
+        carrito = [];
+    }
+}
+
 function validar_codigo(parametro_codigo){
     //declaramos una variable existe para guardar informacion
     let existe = false;
@@ -125,6 +156,8 @@ function agregar_producto() {
     //con esto cerramos el modal 
     let modal = bootstrap.Modal.getInstance(document.getElementById("modal"));
     modal.hide();
+
+    guardarInfo();
 
     //se llama a la funcion mostrar para que muestre los nuevos elemntos ingresados
     mostrar(); 
@@ -275,8 +308,12 @@ function agregar_carrito(index){
         })
     }
 
+
     //mostramos los elementos actualizados
     mostrar();
+
+    // Guarda Info en locale storage
+    guardarInfo();
 
     alert('Producto seleccionado para el carrito de compras');
     
@@ -406,6 +443,8 @@ function delete_producto_carrito(index_carrito, index_producto) {
         //eliminamos ese elemento del array de carrito
         carrito.splice(index_carrito, 1);
 
+        guardarInfo();
+
         //actualizamos la informacion en la vista llamando a la funcion mostrar
         mostrar();
     }    
@@ -430,6 +469,8 @@ function vaciar_carrito() {
         //inicializamos a vacio el array carrito
         carrito = [];
     }
+
+    guardarInfo();
 
     //actualizamos la informacion de la vista llamando la funcion mostrar
     mostrar()
@@ -468,6 +509,8 @@ function comprar() {
 
         //inicializamos a vacio el array carrito
         carrito = [];
+
+        guardarInfo();
 
          //actualizamos la informacion del resumen llamando la funcion resumen
         resumen();

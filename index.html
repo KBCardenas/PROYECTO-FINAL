@@ -8,38 +8,56 @@
     <link href="./css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-success">
-        <div class="container-fluid">
-            <a class="navbar-brand display-5 fw-bold"><img class="img_navbar"src="./images/logo1.png">
-                KAccesorios
+    <nav class="navbar navbar-expand-lg">
+        <div class="container"> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo1.png" id="logo" />KAccesorios
             </a>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Agregar Producto</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nosotros</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-item">
+            <i class="fa-solid fa-cart-shopping nav-link"></i>
+          </div>
         </div>
-    </nav>
+      </nav>
 
-    <div class="container mt-5">
-
+    <div id="hero" class="container-fluid"> 
         <div class="row">
             <div class="col-lg-6 mx-auto text-center">
                 <h1 class="display-5 fw-bold"><i class="fa-solid fa-cart-shopping"></i> KAccesorios</h1>
-                <p class="lead">Tienda Online</p>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12 text-end">
+                <p class="lead">Tienda Online</p>  
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
                     <i class="fa-solid fa-plus"></i> Nuevo Producto
                 </button>
             </div>
         </div>
 
+    </div>
+    <div class="container">
         <div class="row my-4">
             <!-- Targetas de productos -->
             <div class="col-8">
-
+    
                 <div class="row my-4" id="listado-productos">
                     <!--Este div mostraba como debe quedar las targetas de los productos-->
-
+    
                     <!--div class="col-md-4 mt-4">
                         <div class="card">
                             <img src="./images/1.jpg">
@@ -62,13 +80,15 @@
                     </div-->
                 </div>
             </div>
-
+    
             <div class="col-4">
                 <!-- Resume de compras-->
                 <p id="resumen" class="mt-2"></p>
             </div>
         </div>
     </div>
+
+    
 
     <!-- Contenido del modal-->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -136,7 +156,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/9168489264.js"></script>
+    <script src="https://kit.fontawesome.com/7e09a18bad.js" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 
 </body>

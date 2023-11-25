@@ -1,23 +1,78 @@
+:root {
+    --rosaOscuro: #d63384;
+    --rosaClaro: #FF9DBE;
+    --gris: #333333;
+    --amarillo: #FFD700;
+    --blanco: #fff;
+    --rojo: #FF5E5E;
+} /* Paleta de colores */
+
+body {
+    margin-top: 56px;
+    overflow-x: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body, .container, .navbar, .container-fluid, .modal {
+
+    font-family: 'Montserrat', sans-serif; 
+
+} /* Tipografia */
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
 .navbar {
-    
-    background-color: white !important;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color:  var(--rosaOscuro) !important;
 }
 
 .btn-primary {
-    background-color:#d63384 !important;
-    border: #d63384;
+    background-color:var(--rosaOscuro) !important;
+    border: var(--rosaOscuro);
 }
 
-.img_navbar{
-    width: 10%;
+
+#logo {
+    width: 50px; 
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: var(--amarillo);
+}
+
+#hero {
+    background: linear-gradient(to right, var(--rosaClaro), var(--rojo), var(--amarillo));
+    color: #FFFFFF;
+    text-align: center;
+    padding: 100px;
 }
 
 .navbar-brand{
-    color: black !important;
+    color: var(--blanco) !important;
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: var(--amarillo) !important;
+    font-weight: bold;
 }
 
 p{
-    margin-bottom: 0rem;
+    margin-bottom: 10px;
 }
 
 .justificar {
@@ -27,4 +82,30 @@ p{
 .modal-header {
     background-color: #d63384;
     color: white;
+}
+
+/* devices landscape phones, 576px and up */
+@media (min-width: 576px) {
+
+   
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
 }
