@@ -6,42 +6,54 @@
     <title>KAccesorios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet">
+    <link rel="icon" href="images/LOGO_KA.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container"> 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa-solid fa-bars"></i>
           </button>
       
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
             <a class="navbar-brand" href="#">
-                <img src="./images/logo1.png" id="logo" />KAccesorios
+                <img src="./images/LOGO_KA.png" id="logo" />KAccesorios
             </a>
 
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
 
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Agregar Producto</a>
+                <a class="nav-link" href="#hero">Agregar Producto</a>
               </li>
       
               <li class="nav-item">
-                <a class="nav-link" href="#">Nosotros</a>
+                <a class="nav-link" href="#productos">Productos</a>
               </li>
             </ul>
+
           </div>
+
           <div class="nav-item">
-            <i class="fa-solid fa-cart-shopping nav-link"></i>
+            <a href="#carrito" class="nav-link">
+            <i class="fa-solid fa-cart-shopping cart-nav"></i>Mi carrito
+            </a>
           </div>
+
         </div>
       </nav>
+
+    <div id="seccion-principal">
 
     <div id="hero" class="container-fluid"> 
         <div class="row">
             <div class="col-lg-6 mx-auto text-center">
-                <h1 class="display-5 fw-bold"><i class="fa-solid fa-cart-shopping"></i> KAccesorios</h1>
+                
+                <h1 class="display-5 fw-bold">
+                    <i class="fa-solid fa-cart-shopping"></i> 
+                    KAccesorios
+                </h1>
                 <p class="lead">Tienda Online</p>  
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
                     <i class="fa-solid fa-plus"></i> Nuevo Producto
@@ -50,11 +62,12 @@
         </div>
 
     </div>
-    <div class="container">
-        <div class="row my-4">
+    <div class="container id="productos"" >
+        <div class="row my-4 mt-5">
+            
             <!-- Targetas de productos -->
-            <div class="col-8">
-    
+            <div class="col-12">
+                <h2>Nuestros Productos</h2>
                 <div class="row my-4" id="listado-productos">
                     <!--Este div mostraba como debe quedar las targetas de los productos-->
     
@@ -81,7 +94,13 @@
                 </div>
             </div>
     
-            <div class="col-4">
+           
+        </div>
+    </div>
+
+    <div class="container" id="carrito">
+        <div class="row">
+             <div class="col-12">
                 <!-- Resume de compras-->
                 <p id="resumen" class="mt-2"></p>
             </div>
@@ -104,36 +123,36 @@
 
                 <div class="modal-body">
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-solid fa-qrcode"></i> Código*
+                        <label class="form-label" for="codigo"><i class="fa-solid fa-qrcode"></i> Código*
                         </label>
                         <input type="text" class="form-control" id="codigo">
                     </div>
 
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-solid fa-signature"></i> Nombre*
+                        <label class="form-label" for="nombre"><i class="fa-solid fa-signature"></i> Nombre*
                         </label>
                         <input type="text" class="form-control" id="nombre">
                     </div>
 
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-solid fa-calculator"></i> Cantidad*
+                        <label class="form-label" for="cantidad"><i class="fa-solid fa-calculator"></i> Cantidad*
                         </label>
                         <input type="number" class="form-control" id="cantidad">
                     </div>
 
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-solid fa-dollar-sign"></i> Precio*
+                        <label class="form-label" for="precio"><i class="fa-solid fa-dollar-sign"></i> Precio*
                         </label>
                         <input type="number" class="form-control" id="precio">
                     </div>
 
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-solid fa-image"></i> Seleccionar imagen*</label>
+                        <label class="form-label" for="imagen"><i class="fa-solid fa-image"></i> Seleccionar imagen*</label>
                         <input type="file" class="form-control" id="imagen" onchange="obtenerImagen()">
                     </div>
 
                     <div class="mt-3">
-                        <label class="form-label"><i class="fa-regular fa-comment"></i> Descripción*
+                        <label class="form-label" for="descripcion"><i class="fa-regular fa-comment"></i> Descripción*
                         </label>
                         <textarea class="form-control" id="descripcion" rows="4"></textarea>
                     </div>
@@ -155,9 +174,21 @@
 
     </div>
 
+</div>
+
+<div id="detalles-producto" style="display: none;">
+    <!-- Contenido de los detalles del producto se agregará aquí -->
+    <button onclick="volverAPrincipal()">Volver</button>
+</div>
+
+    <footer>
+        <p>Todos los derechos reservados &copy;</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7e09a18bad.js" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/mostrarProduct.js"></script>
 
 </body>
 </html>

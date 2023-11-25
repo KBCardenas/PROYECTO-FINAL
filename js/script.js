@@ -161,8 +161,6 @@ function agregar_producto() {
 
     //se llama a la funcion mostrar para que muestre los nuevos elemntos ingresados
     mostrar(); 
-
-    alert('Producto Ingresado');
 }
 
 /*
@@ -180,14 +178,14 @@ function mostrar() {
         //validamos que la cantidad de unidades disponibles del producto no este agotado
         if(val.cantidad == 0){
             items += `<div class="col-md-4 mt-4">
-                    <div class="card h-100">
+                    <div class="card">
                         <img class="card-img-top" src="${val.imagen}">
                         <div class="card-body">
-                            <h5 class="card-title text-center">${val.nombre}</h5>
-                            <p class="mt-3"><b>Codigo: </b>${val.codigo}</p>
+                            <h5 class="card-title">${val.nombre}</h5>
+                            <p class="price">$${val.precio} COP</p>
+                            <p><b>Codigo: </b>${val.codigo}</p>
                             <p><b>Unidades Disponibles: </b>${val.cantidad}</p>
-                            <p><b>Precio: </b>${val.precio}</p>
-                            <p class="justificar"><b>Descripcion: </b>${val.descripcion}</p>
+                            
 
                             <div class="input-group mt-3">
                                 <p class="">Agotado</p>
@@ -198,19 +196,21 @@ function mostrar() {
                 </div>`;
         } else {
             items += `<div class="col-md-4 mt-4">
-                    <div class="card h-100">
+                    <div class="card">
                         <img src="${val.imagen}">
                         <div class="card-body">
-                            <h5 class="card-title text-center">${val.nombre}</h5>
-                            <p class="mt-3"><b>Codigo: </b>${val.codigo}</p>
+                            <h5 class="card-title">${val.nombre}</h5>
+                            <p class="price">$${val.precio} COP</p>
+                            <p><b>Codigo: </b>${val.codigo}</p>
                             <p><b>Unidades Disponibles: </b>${val.cantidad}</p>
-                            <p><b>Precio: </b>${val.precio}</p>
-                            <p class="justificar"><b>Descripcion: </b>${val.descripcion}</p>
+                            
+
+                            <button class="btn btn-secondary" onclick="mostrarDetallesProducto(${index})">Ver Producto</button>
 
                             <div class="input-group mt-3">
                                 <input type="number" class="form-control" id="cantidad_producto" value="1">
-                                <button class="btn btn-success" onclick="agregar_carrito(${index})">
-                                    <i class="fa-solid fa-plus"></i>
+                                <button class="btn btn-success agg" onclick="agregar_carrito(${index})">
+                                <i class="fas fa-cart-plus"></i>
                                 </button>
                             </div>
 
@@ -314,8 +314,6 @@ function agregar_carrito(index){
 
     // Guarda Info en locale storage
     guardarInfo();
-
-    alert('Producto seleccionado para el carrito de compras');
     
 }
 
@@ -360,7 +358,7 @@ function resumen() {
                             </div>
                         <div class="col-2 mt-4">
                             <div class="input-group">
-                                <button class="btn btn-danger" onclick="delete_producto_carrito(${index2}, ${val.index})">
+                                <button class="btn btn-danger eliminar" onclick="delete_producto_carrito(${index2}, ${val.index})">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
@@ -386,7 +384,7 @@ function resumen() {
 
     //asignamos a esta variable el resto de la informacion que corresponde al resume de la compra
     items_resumen = ` <h2 class="mt-5"><i class="fa-solid fa-cart-flatbed"></i> Resumen de Compra</h2>
-                        <div class="card">
+                        <div class="card mb-5">
                             <div class="card-body">
                                 <div class="row">
 
@@ -405,7 +403,7 @@ function resumen() {
 
                                     <div class="col-12 mt-4">
                                         <center>
-                                            <button class="btn btn-success" onclick="comprar()">
+                                            <button class="btn btn-success buy" onclick="comprar()">
                                                 <i class="fa-regular fa-credit-card"></i> Comprar
                                             </button>
                                         </center>
